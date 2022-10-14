@@ -11,4 +11,13 @@ describe('Testing Contact App', () => {
         const contactName = await $('//*[@text="Wilson Tan"]')
         await expect(contactName).toBeDisplayed()
     });
+    it('Delete contact', async() => {
+        const contactName = await $('//*[@text="Wilson Tan"]')
+        await expect(contactName).toBeDisplayed()
+        FormScreen.clickElipsisBtn()
+        FormScreen.clickDeleteOption()
+        FormScreen.clickDeletePopup()
+        const text = $('//*[@text="Your contacts list is empty"]')
+        await expect(text).toBeDisplayed()
+    });
 });
