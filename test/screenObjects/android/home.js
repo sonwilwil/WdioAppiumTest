@@ -1,26 +1,64 @@
 class home {
     
+    get titlePage() {
+        return $('//*[@text="TO-DO-MVP"]')
+    }
+
     get addBtn() {
-        return $('//*[@resource-id="com.android.contacts:id/floating_action_button_container"]')
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/fab_add_task"]')
     }
 
-    get cancelBtn() {
-        return $('//*[@resource-id="com.android.contacts:id/left_button"]')
+    get editBtn() {
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/fab_edit_task"]')
     }
 
-    async clickAddBtn() {
+    get checkbox() {
+        return $('android.widget.CheckBox')
+    }
+
+    get toDoTitle() {
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/title"]')
+    }
+
+    get deleteBtn() {
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/menu_delete"]')
+    }
+
+    get menuBtn() {
+        return $('//*[@content-desc="Navigate up"]')
+    }
+
+    get toDoListMenu() {
+        return $('//*[@text="TO-DO List"]')
+    }
+
+    async clickAdd() {
         await this.addBtn.click()
     }
 
-    async clickCancelBtn() {
-        await this.cancelBtn.click()
+    async clickEdit() {
+        await this.editBtn.click()
     }
 
-    async login(username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.loginBtn.click();
-      }
+    async clickToDo() {
+        await this.toDoTitle.click()
+    }
+
+    async clickCheckbox() {
+        await this.checkbox.click()
+    }
+
+    async clickDelete() {
+        await this.deleteBtn.click()
+    }
+
+    async clickMenu() {
+        await this.menuBtn.click()
+    }
+
+    async clickMenuToDoList() {
+        await this.toDoListMenu.click()
+    }
 }
 
 module.exports = new home()

@@ -1,62 +1,39 @@
 class form {
 
-    get cancelBtn() {
-        return $('//*[@resource-id="com.android.contacts:id/left_button"]')
+    get titlePage() {
+        return $('//*[@text="New TO-DO"]')
     }
 
+    get editTitlePage() {
+        return $('//*[@text="Edit TO-DO"]')
+    }
+    
     get title() {
-        return $('//*[@text="Create new contact"]')
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/add_task_title"]')
     }
 
-    get firstName() {
-        return $('//*[@text="First name"]')
-    }
-
-    get lastName() {
-        return $('//*[@text="Last name"]')
-    }
-
-    get phone() {
-        return $('//*[@text="Phone"]')
+    get description() {
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/add_task_description"]')
     }
 
     get saveBtn() {
-        return $('//*[@resource-id="com.android.contacts:id/editor_menu_save_button"]')
+        return $('//*[@resource-id="com.example.android.architecture.blueprints.todomvp.mock:id/fab_edit_task_done"]')
     }
 
-    get elipsisBtn() {
-        return $('android.widget.ImageButton')
-    }
-
-    get deleteBtn() {
-        return $('//*[@text="Delete"]')
-    }
-
-    get deletePopup() {
-        return $('//*[@text="DELETE"]')
-    }
-
-    async clickCancelBtn() {
-        await this.cancelBtn.click()
-    }
-
-    async createContact(first, last, phone) {
-        await this.firstName.setValue(first);
-        await this.lastName.setValue(last);
-        await this.phone.setValue(phone);
+    async createToDo(title, desc) {
+        await this.title.setValue(title);
+        await this.description.setValue(desc);
         await this.saveBtn.click();
-    }
-    
-    async clickElipsisBtn() {
-        await this.elipsisBtn.click()
+        await driver.pause(5000)
     }
 
-    async clickDeleteOption() {
-        await this.deleteBtn.click()
-    }
-
-    async clickDeletePopup() {
-        await this.deletePopup.click()
+    async editToDo(title, desc) {
+        await this.title.clearValue()
+        await this.title.setValue(title);
+        await this.description.clearValue()
+        await this.description.setValue(desc);
+        await this.saveBtn.click();
+        await driver.pause(5000)
     }
 }
 
