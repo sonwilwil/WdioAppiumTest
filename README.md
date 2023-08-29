@@ -1,4 +1,4 @@
-# Wilson - SDET VENTURES TEST
+# Wilson Tan - SDET VENTURES TEST
 
 This is the result of the QA automation assignment using Webdriver.io automation tools
 
